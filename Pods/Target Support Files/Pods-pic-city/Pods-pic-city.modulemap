@@ -1,0 +1,6 @@
+framework module Pods_pic_city {
+  umbrella header "Pods-pic-city-umbrella.h"
+
+  export *
+  module * { export * }
+}
