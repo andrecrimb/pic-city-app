@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5RU-eA-v8S">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,19 +10,84 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MapVC-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Double-tap to drop a pin and view photos-->
+        <scene sceneID="IL7-Xl-qYm">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="pic_city" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="bdH-a0-wcH" customClass="MapVC" customModule="pic_city" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sWh-Bu-Lhj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er6-38-9na">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="811"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NBQ-1N-9eb">
+                                <rect key="frame" x="279" y="682" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="aBk-Co-fqg"/>
+                                    <constraint firstAttribute="height" constant="80" id="qhe-ER-gzX"/>
+                                </constraints>
+                                <state key="normal" image="Group"/>
+                                <connections>
+                                    <action selector="centerMapPressed:" destination="bdH-a0-wcH" eventType="touchUpInside" id="xAO-X2-zSp"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWj-m6-Fqd">
+                                <rect key="frame" x="0.0" y="811" width="375" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Klg-Mz-MbI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="SWj-m6-Fqd" secondAttribute="bottom" id="6op-xR-kt3"/>
+                            <constraint firstItem="SWj-m6-Fqd" firstAttribute="top" secondItem="Er6-38-9na" secondAttribute="bottom" id="Ahe-oT-KYd"/>
+                            <constraint firstItem="Er6-38-9na" firstAttribute="trailing" secondItem="sWh-Bu-Lhj" secondAttribute="trailing" id="EdP-au-DJJ"/>
+                            <constraint firstItem="Er6-38-9na" firstAttribute="leading" secondItem="sWh-Bu-Lhj" secondAttribute="leading" id="Tkf-hL-Wt1"/>
+                            <constraint firstItem="deu-eb-iF7" firstAttribute="bottom" secondItem="NBQ-1N-9eb" secondAttribute="bottom" constant="16" id="cs6-r2-Lv0"/>
+                            <constraint firstAttribute="trailing" secondItem="SWj-m6-Fqd" secondAttribute="trailing" id="g4c-rJ-98I"/>
+                            <constraint firstItem="Er6-38-9na" firstAttribute="top" secondItem="sWh-Bu-Lhj" secondAttribute="top" id="kmr-gE-kb8"/>
+                            <constraint firstItem="SWj-m6-Fqd" firstAttribute="leading" secondItem="sWh-Bu-Lhj" secondAttribute="leading" id="sib-N9-VIG"/>
+                            <constraint firstItem="deu-eb-iF7" firstAttribute="trailing" secondItem="NBQ-1N-9eb" secondAttribute="trailing" constant="16" id="xyX-PY-Lg4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="deu-eb-iF7"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Double-tap to drop a pin and view photos" id="NDh-KH-CWw"/>
+                    <connections>
+                        <outlet property="mapView" destination="Er6-38-9na" id="Z13-I0-YNU"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tkl-9g-04W" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1890.4000000000001" y="120.98950524737631"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OwZ-3R-bCI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5RU-eA-v8S" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pcL-gj-E24">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.42745098040000001" green="0.53333333329999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bdH-a0-wcH" kind="relationship" relationship="rootViewController" id="BRX-7C-BXU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wS-7q-Rmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="120.44334975369459"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Group" width="87" height="87"/>
+    </resources>
 </document>
