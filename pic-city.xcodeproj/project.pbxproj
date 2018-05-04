@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00423F0F65B6DD782EDE78B6 /* Pods_pic_cityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A694EF7C5A7AB34674FCF952 /* Pods_pic_cityUITests.framework */; };
 		1C369F7CABB47B77598F8B2E /* Pods_pic_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C03018FE59C1E9A711BBEB /* Pods_pic_city.framework */; };
+		54156284209B6E0A00E7505E /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54156283209B6E0A00E7505E /* DroppablePin.swift */; };
+		54156286209B6F6A00E7505E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54156285209B6F6A00E7505E /* Constants.swift */; };
+		54156288209CB1A300E7505E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54156287209CB1A300E7505E /* PhotoCell.swift */; };
 		54C44AD120937A52001234A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C44AD020937A52001234A3 /* AppDelegate.swift */; };
 		54C44AD320937A52001234A3 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C44AD220937A52001234A3 /* MapVC.swift */; };
 		54C44AD620937A52001234A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AD420937A52001234A3 /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		16F20DB846AFDFCFD1D9791D /* Pods-pic-cityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-cityTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pic-cityTests/Pods-pic-cityTests.release.xcconfig"; sourceTree = "<group>"; };
 		23F72C70BD69FC0F455CE3A5 /* Pods-pic-cityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-cityUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pic-cityUITests/Pods-pic-cityUITests.release.xcconfig"; sourceTree = "<group>"; };
 		45BDF08B2D8E20004A968278 /* Pods-pic-city.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-city.release.xcconfig"; path = "Pods/Target Support Files/Pods-pic-city/Pods-pic-city.release.xcconfig"; sourceTree = "<group>"; };
+		54156283209B6E0A00E7505E /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
+		54156285209B6F6A00E7505E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		54156287209CB1A300E7505E /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		54C44ACD20937A51001234A3 /* pic-city.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pic-city.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C44AD020937A52001234A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54C44AD220937A52001234A3 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 		54C44AFF20937B49001234A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54156283209B6E0A00E7505E /* DroppablePin.swift */,
+				54156287209CB1A300E7505E /* PhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 		54C44B022093820C001234A3 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				54156285209B6F6A00E7505E /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -498,7 +507,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C44AD320937A52001234A3 /* MapVC.swift in Sources */,
+				54156288209CB1A300E7505E /* PhotoCell.swift in Sources */,
+				54156284209B6E0A00E7505E /* DroppablePin.swift in Sources */,
 				54C44AD120937A52001234A3 /* AppDelegate.swift in Sources */,
+				54156286209B6F6A00E7505E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,7 +687,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-city/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-city";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -691,7 +706,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-city/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-city";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -708,7 +726,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-cityTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-cityTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -726,7 +748,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-cityTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-cityTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -743,7 +769,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-cityUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-cityUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -760,7 +790,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K27EE7EUGC;
 				INFOPLIST_FILE = "pic-cityUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "andrerosa.pic-cityUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
