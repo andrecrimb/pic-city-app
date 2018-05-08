@@ -43,6 +43,8 @@ class MapVC: UIViewController {
         setupMapView()
         addDoubleTap()
         setupCollectionView()
+        
+        registerForPreviewing(with: self, sourceView: collectionView!)
     }
 
     func setupMapView(){
@@ -283,14 +285,22 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollect
     }
 }
 
+
+// MARK: Adding 3D Touch Peek and Pop to uiCollection view
+
 extension MapVC: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
+        guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else {return nil}
         
+        popVC.initData(forImage: imageArray[indexPath.row])
+    
+        previewingContext.sourceRect = cell.contentView.frame
+        return popVC
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        <#code#>
+        showDetailViewController(viewControllerToCommit, sender: self)
     }
 }
 
