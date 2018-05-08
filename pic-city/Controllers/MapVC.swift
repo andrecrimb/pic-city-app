@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Alamofire
+import AlamofireImage
 
 class MapVC: UIViewController {
     
@@ -31,6 +32,7 @@ class MapVC: UIViewController {
     var collectionView: UICollectionView?
     
     var imageUrlArray = [String]()
+    var imageArray = [UIImage]()
     
     var screenSize = UIScreen.main.bounds
     
@@ -59,7 +61,7 @@ class MapVC: UIViewController {
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.Identifiers.PhotoCell)
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.backgroundColor = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
+        collectionView?.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         pullUpView.addSubview(collectionView!)
     }
     
@@ -71,6 +73,7 @@ class MapVC: UIViewController {
     }
     
     @objc func animateViewDown() {
+        cancelAllSessions()
         pullUpViewHeightConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -105,7 +108,7 @@ class MapVC: UIViewController {
         progressLabel?.font = UIFont(name: "Avenir Next Condensed", size: 18)
         progressLabel?.textColor = #colorLiteral(red: 0.2235294118, green: 0.231372549, blue: 0.3019607843, alpha: 1)
         progressLabel?.textAlignment = .center
-        progressLabel?.text = "14/40 Photos Loaded"
+        progressLabel?.text = ""
         collectionView?.addSubview(progressLabel!)
     }
     
@@ -133,6 +136,30 @@ class MapVC: UIViewController {
                 self.imageUrlArray.append(postUrl)
             }
             handler(true)
+        }
+    }
+    
+    func retrieveImages(handler: @escaping StatusCompletionHandler) {
+        imageArray = []
+        
+        for url in imageUrlArray {
+            Alamofire.request(url).responseImage { (response) in
+                guard let image = response.result.value else {return}
+                self.imageArray.append(image)
+                self.progressLabel?.text = "\(self.imageArray.count)/40 Images Downloaded"
+                
+                if self.imageArray.count == self.imageUrlArray.count {
+                    handler(true)
+                }
+            }
+        }
+        
+    }
+    
+    func cancelAllSessions() {
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach({$0.cancel()})
+            downloadData.forEach({$0.cancel()})
         }
     }
     
@@ -169,6 +196,7 @@ extension MapVC: MKMapViewDelegate {
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
         removePin()
+        cancelAllSessions()
         UIView.animate(withDuration: 0.3) {
             self.removeSpinner()
             self.removeProgressLabel()
@@ -189,9 +217,16 @@ extension MapVC: MKMapViewDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(touchCoordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
         
-        retrieveUrls(forAnnotation: annotation) { (success) in
-            if success {
-                print(self.imageUrlArray)
+        retrieveUrls(forAnnotation: annotation) { (finished) in
+            if finished {
+                self.retrieveImages(handler: { (finished) in
+                    if finished {
+                        self.removeSpinner()
+                        self.removeProgressLabel()
+                        
+                        
+                    }
+                })
             }
         }
     }
