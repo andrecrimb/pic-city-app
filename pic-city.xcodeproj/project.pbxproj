@@ -21,6 +21,8 @@
 		54C44ADB20937A58001234A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54C44AD920937A58001234A3 /* LaunchScreen.storyboard */; };
 		54C44AE620937A58001234A3 /* pic_cityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C44AE520937A58001234A3 /* pic_cityTests.swift */; };
 		54C44AF120937A58001234A3 /* pic_cityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C44AF020937A58001234A3 /* pic_cityUITests.swift */; };
+		54C758FF20A34DE40045EFCB /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C758FE20A34DE40045EFCB /* BlurView.swift */; };
+		54C7590320A34F590045EFCB /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7590220A34F590045EFCB /* DesignableView.swift */; };
 		D42BA9081BAB036E34D3ED16 /* Pods_pic_cityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7EE25E63BA257865326820 /* Pods_pic_cityTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		54C44AEC20937A58001234A3 /* pic-cityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pic-cityUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C44AF020937A58001234A3 /* pic_cityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pic_cityUITests.swift; sourceTree = "<group>"; };
 		54C44AF220937A58001234A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54C758FE20A34DE40045EFCB /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		54C7590220A34F590045EFCB /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		790E3392E800BC070BFC4AB4 /* Pods-pic-city.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-city.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pic-city/Pods-pic-city.debug.xcconfig"; sourceTree = "<group>"; };
 		8DC4F98DC01262F6F8EB504B /* Pods-pic-cityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-cityTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pic-cityTests/Pods-pic-cityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A54FE62D4F9DFA00753B9EB3 /* Pods-pic-cityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pic-cityUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pic-cityUITests/Pods-pic-cityUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		54C44AFF20937B49001234A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54C758FD20A34DAD0045EFCB /* Styles */,
 				54156283209B6E0A00E7505E /* DroppablePin.swift */,
 				54156287209CB1A300E7505E /* PhotoCell.swift */,
 			);
@@ -195,6 +200,15 @@
 				54156285209B6F6A00E7505E /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		54C758FD20A34DAD0045EFCB /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				54C758FE20A34DE40045EFCB /* BlurView.swift */,
+				54C7590220A34F590045EFCB /* DesignableView.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		88FF1C71926467D4FA3A891C /* Frameworks */ = {
@@ -513,11 +527,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5415628B20A145B100E7505E /* PopVC.swift in Sources */,
+				54C758FF20A34DE40045EFCB /* BlurView.swift in Sources */,
 				54C44AD320937A52001234A3 /* MapVC.swift in Sources */,
 				5475282E20A1FD6F00FB36D0 /* PopImage.swift in Sources */,
 				54156288209CB1A300E7505E /* PhotoCell.swift in Sources */,
 				54156284209B6E0A00E7505E /* DroppablePin.swift in Sources */,
 				54C44AD120937A52001234A3 /* AppDelegate.swift in Sources */,
+				54C7590320A34F590045EFCB /* DesignableView.swift in Sources */,
 				54156286209B6F6A00E7505E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -285,7 +285,7 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollect
     // MARK: Programmatically stantiate a viewController
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else {return}
-        popVC.initData(forImage: popImages[indexPath.row].uiImage!)
+        popVC.initData(forImage: popImages[indexPath.row])
         present(popVC, animated: true, completion: nil)
     }
 }
@@ -298,7 +298,7 @@ extension MapVC: UIViewControllerPreviewingDelegate {
         guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else {return nil}
         guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else {return nil}
         
-        popVC.initData(forImage: popImages[indexPath.row].uiImage!)
+        popVC.initData(forImage: popImages[indexPath.row])
     
         previewingContext.sourceRect = cell.contentView.frame
         return popVC
